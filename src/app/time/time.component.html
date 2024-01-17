@@ -1,0 +1,39 @@
+<!-- In your component's HTML file -->
+
+<div class="container">
+    <h2>WHAT TIME ARE YOU FREE?</h2>
+    <button (click)="toggleOptions()">Tap to see the options</button>
+
+    <div class="time-boxes" *ngIf="showOptions">
+        <div class="time-box" *ngFor="let time of timeOptions" (click)="selectTime(time)"
+             [class.selected]="selectedTime === time">
+            {{ time }}
+        </div>
+    </div>
+
+    <div class="custom-time" *ngIf="showOptions && !selectedTime">
+        <label>Enter Custom Time if no option suitable from above</label>
+        <input type="text" [(ngModel)]="customTime" placeholder="Enter Custom Time">
+    </div>
+
+    <button *ngIf="showOptions" [disabled]="!isConfirmButtonEnabled()" (click)="confirmSelection()">Done</button>
+
+    <!-- New question and confirm button -->
+    <div class="new-question" *ngIf="showNewQuestion">
+        <h2>Should I pick you up?</h2>
+      
+        <div>
+          <input type="radio" id="yesOption" name="pickupOption" [(ngModel)]="pickupOption" [value]="'Yes'">
+          <label for="yesOption">Yes!</label>
+        </div>
+      
+        <div>
+          <input type="radio" id="noOption" name="pickupOption" [(ngModel)]="pickupOption" [value]="'No'">
+          <label for="noOption">No, I will come by myself...</label>
+        </div>
+      
+        <!-- Confirm button for the new question -->
+        <button (click)="confirmNewQuestion()">Confirm</button>
+      </div>
+      
+</div>

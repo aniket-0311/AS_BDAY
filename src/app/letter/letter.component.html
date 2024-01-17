@@ -1,0 +1,28 @@
+<div class="body">
+    <div class="container">
+      <div class="envelope-wrapper" [class.flap]="flap" (click)="toggleFlap()">
+        <div class="envelope">
+          <div class="letter" [class.flap]="flap">
+            <div class="text">
+              <strong>Hello,</strong>
+              <p>
+                Knock Knock.Who's there? Ion. Ion who? 
+                I have my ion you.
+                See ya tomorrow. You will get to know the first place.
+                So it starts from {{time}} !
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="heart" ></div>
+      </div>
+    </div>
+</div>
+
+<div class="audio-bg">
+    <audio controls autoplay loop muted class="audio-btn">
+      <source src="../../assets/gifs/song.mp3" type="audio/mp3">
+      Your browser does not support the audio tag.
+    </audio>
+</div>
+  

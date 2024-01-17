@@ -1,0 +1,14 @@
+<div class="wrapper">
+    <h2 class="question">{{question}}</h2>
+    <img class="gif" alt="gif" [src]="gifSource"/>
+    <div class="btn-group">
+      <button *ngIf="!showPlanButton" class="yes-btn" (click)="onYesClick()">Yes</button>
+        <button *ngIf="!showPlanButton" class="no-btn" (mouseover)="onNoMouseOver()">No</button>
+        <button *ngIf="showPlanButton" class="plan-btn" (click)="onPlanClick()">Let's Plan</button>
+      <button *ngIf="showPlanButton" class="plan-btn" (click)="onPlanClickNo()">No</button>
+    </div>
+    <audio controls autoplay loop muted class="audio-btn">
+      <source src="../../assets/gifs/song.mp3" type="audio/mp3">
+      Your browser does not support the audio tag.
+    </audio>
+  </div>

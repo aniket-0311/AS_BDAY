@@ -1,0 +1,41 @@
+<!-- plan.component.html -->
+<div class="body">
+  <div class="container" [class.flipped]="isFlipped" [style.transform]="'scale(' + containerScale + ')'">
+      <form action="">
+        <h1>Need Your Details ASAP!</h1>
+  
+        <!-- Your input boxes and radio buttons -->
+        <div class="input-box">
+          <input type="text" placeholder="Name" required [(ngModel)]="formData.name" name="name" />
+        </div>
+        <div class="input-box">
+          <input type="number" placeholder="Age" required [(ngModel)]="formData.age" name="age"/>
+        </div>
+        <div class="input-box">
+          <input type="text" placeholder="Sex" required [(ngModel)]="formData.sex"  name="sex"/>
+        </div>
+        <div class="radio-group">
+          <h5>Select:</h5>
+          <div class="radio-btn">
+            <label>
+              <input type="radio" name="selection" value="Hot" [(ngModel)]="formData.selection" />
+              Hot
+            </label>
+            <label>
+              <input type="radio" name="selection" value="Cute" [(ngModel)]="formData.selection" />
+              Cute
+            </label>
+          </div>
+        </div>
+        
+        <button type="submit" class="btn" (click)="flipCard()">Submit</button>
+      </form>
+      <div class="back">
+        <!-- Include your photo and message here -->
+        <img src="../../assets/gifs/AN.jpg" alt="Photo" />
+        <p>Your message here</p>
+        <button (click)="onCLick()">Click Me Now!</button>
+      </div>
+    </div>
+  </div>
+  
