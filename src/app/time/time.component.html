@@ -1,6 +1,6 @@
 <!-- In your component's HTML file -->
 
-  <div class="container" (click)="onContainerClick($event)">
+  <div class="container">
       <h2  *ngIf="!showNewQuestion">WHAT TIME ARE YOU FREE?</h2>
       <button *ngIf="!showOptions || !showNewQuestion" (click)="toggleOptions()">Tap to see the options</button>
   

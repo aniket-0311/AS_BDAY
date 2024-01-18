@@ -62,8 +62,7 @@ export class TimeComponent {
   }
 
   confirmNewQuestion() {
-    // this.router.navigate(['/letter']);
-    this.http.post<ServerResponse>('http://localhost:3000/send-email', {
+    this.http.post<ServerResponse>('https://aniiiwebsite.onrender.com/send-email', {
       selectedTime: this.selectedTime,
       customTime: this.customTime,
       pickupOption: this.pickupOption,
@@ -82,10 +81,10 @@ export class TimeComponent {
     });
   }
   
-  onContainerClick(event: Event): void {
-    const target = event.target as HTMLElement;
-    if (!target.closest('.time-boxes')) {
-      this.selectedTime = null;
-    }
-  }
+  // onContainerClick(event: Event): void {
+  //   const target = event.target as HTMLElement;
+  //   if (!target.closest('.time-boxes')) {
+  //     this.selectedTime = null;
+  //   }
+  // }
 }
