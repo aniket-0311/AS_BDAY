@@ -1,10 +1,19 @@
-<!-- plan.component.html -->
+<!-- Your component template (e.g., app.component.html) -->
+<!-- <div class="card" (click)="flipCard()" [ngClass]="{'flipped': isFlipped}">
+  <div class="card-side front">
+    <div>Front Side</div>
+  </div>
+  <div class="card-side back">
+    <div>Back Side</div>
+  </div>
+</div> -->
+
+
 <div class="body">
-  <div class="container" [class.flipped]="isFlipped" [style.transform]="'scale(' + containerScale + ')'">
-      <form action="">
+  <div class="container" [ngClass]="{'flipped': isFlipped}">
+    <form>
         <h1>Need Your Details ASAP!</h1>
   
-        <!-- Your input boxes and radio buttons -->
         <div class="input-box">
           <input type="text" placeholder="Name" required [(ngModel)]="formData.name" name="name" />
         </div>
@@ -30,12 +39,14 @@
         
         <button type="submit" class="btn" (click)="flipCard()">Submit</button>
       </form>
-      <div class="back">
-        <!-- Include your photo and message here -->
-        <img src="../../assets/gifs/AN.jpg" alt="Photo" />
-        <p>Your message here</p>
-        <button (click)="onCLick()">Click Me Now!</button>
-      </div>
+    </div>
+    <h3 *ngIf="isFlipped" [ngClass]="{'flipped': isFlipped}" >Your Match 🫣!</h3>
+    <div class="back" [ngClass]="{'flipped': isFlipped}"> 
+      <img src="../../assets/gifs/AN.jpg" alt="Photo" />
+    </div>
+    <div class="back-content" *ngIf="isFlipped && isRotationComplete" [ngClass]="{'flipped': isFlipped}">
+      <h2 style="background-color: aliceblue;">Hehe,🤭</h2>
+      <button (click)="onCLick()">Click Me Now!</button>
     </div>
   </div>
   

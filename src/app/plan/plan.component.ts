@@ -1,24 +1,26 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router } from '@angular/router';
 import { PlanService } from './plan.service';
+import { Renderer2 } from '@angular/core';
+
 
 @Component({
   selector: 'app-plan',
   standalone: true,
-  imports: [FormsModule,CommonModule],
+  imports: [CommonModule,FormsModule],
   templateUrl: './plan.component.html',
   styleUrl: './plan.component.css',
 })
 export class PlanComponent {
   isFlipped = false;
   containerScale = 1;
+  isRotationComplete: boolean = false;
 
-  constructor(private router:Router,private planService:PlanService){}
+  constructor(private router:Router,private planService:PlanService,private renderer: Renderer2){
+    
+  }
 
   formData: any = {
     name: '',
@@ -29,6 +31,13 @@ export class PlanComponent {
 
   flipCard() {
     this.isFlipped = !this.isFlipped;
+    this.isRotationComplete = true;
+  
+  }
+  
+
+  showBackContent() {
+    console.log("aa")
   }
 
   onCLick(){

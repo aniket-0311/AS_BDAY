@@ -12,7 +12,7 @@
     </div>
 
     <div class="custom-time" *ngIf="showOptions && !selectedTime">
-        <label>Enter Custom Time if no option suitable from above</label>
+        <label style="background-color: wheat;">Enter Custom Time if no option suitable from above</label>
         <input type="text" [(ngModel)]="customTime" placeholder="Enter Custom Time">
     </div>
 
@@ -20,16 +20,16 @@
 
     <!-- New question and confirm button -->
     <div class="new-question" *ngIf="showNewQuestion">
-        <h2>Should I pick you up?</h2>
+        <h2 style="font-size: 30px;">Should I pick you up?</h2>
       
         <div>
           <input type="radio" id="yesOption" name="pickupOption" [(ngModel)]="pickupOption" [value]="'Yes'">
-          <label for="yesOption">Yes!</label>
+          <label for="yesOption" style="background-color: wheat;">Yes!</label>
         </div>
       
         <div>
           <input type="radio" id="noOption" name="pickupOption" [(ngModel)]="pickupOption" [value]="'No'">
-          <label for="noOption">No, I will come by myself...</label>
+          <label for="noOption" style="background-color: wheat;">No, I will come by myself...</label>
         </div>
       
         <!-- Confirm button for the new question -->
