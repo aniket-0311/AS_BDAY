@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "cd backend/built && node server.js",
     "build": "ng build",
-    "prebuild":"cd backend && npm run build",
+    "prebuild":"cd backend && npm install",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
