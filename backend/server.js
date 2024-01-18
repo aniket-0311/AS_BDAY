@@ -59,6 +59,18 @@ app.post("/send-email", async (req, res) => {
   }
 });
 
+app.post("/send-email", async (req, res) => {
+  try {
+
+    res.status(201).json({
+      status: 201,
+      message: "Working",
+    });
+  } catch (error) {
+    res.status(500).send("Internal Server error");
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
