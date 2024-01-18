@@ -4,9 +4,9 @@
   padding: 0;
 } */
 .container {
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
+  display: flex;
+  justify-content: center;
+  flex-direction: column; 
   text-align: center;
   margin: 0;
   /* background-color: #f7accf;
@@ -20,6 +20,11 @@
 button {
   margin-top: 10px;
   padding: 10px;
+  flex-shrink: 0;
+  width: auto; /* Set width to auto or specify a value */
+  align-self: center;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 .time-boxes {

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient,HttpClientModule } from '@angular/common/http';
-import { Component, HostListener } from '@angular/core';
+import {  ChangeDetectorRef, Component, HostListener, NgZone } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TimeService } from './time.service';
@@ -30,7 +30,11 @@ export class TimeComponent {
   pickupOption: string | null = null;
   formData: any;
 
-  constructor(private http: HttpClient,private router:Router,private timeService:TimeService,private planService:PlanService) {}
+  constructor(private http: HttpClient,private router:Router,
+    private timeService:TimeService,private planService:PlanService,
+    private cdRef: ChangeDetectorRef,
+    private ngZone: NgZone
+    ) {}
 
   ngOnInit(){
     this.formData = this.planService.getFormData();
@@ -44,6 +48,7 @@ export class TimeComponent {
   selectTime(time: string) {
     this.selectedTime = time;
     this.customTime = '';
+    console.log(this.selectedTime)
   }
   
 
@@ -78,15 +83,12 @@ export class TimeComponent {
     });
   }
   
-   
-
-
-  @HostListener('document:click', ['$event'])
-  onDocumentClick(event: MouseEvent) {
+  onContainerClick(event: Event): void {
     const target = event.target as HTMLElement;
-
-    if (!target.closest('.time-boxes') && !target.closest('.container') && this.selectedTime !== null) {
+    // Check if the clicked element is outside of time-boxes and container
+    if (!target.closest('.time-boxes')) {
       this.selectedTime = null;
+      console.log(this.selectedTime)
     }
   }
 }
