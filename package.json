@@ -2,10 +2,9 @@
   "name": "as-bday",
   "version": "0.0.0",
   "scripts": {
-    "ng": "./node_modules/.bin/ng",
-    "start": "cd backend/built && node server.js",
+    "ng": "ng",
+    "start": "ng serve",
     "build": "ng build",
-    "prebuild":"cd backend && npm install",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
