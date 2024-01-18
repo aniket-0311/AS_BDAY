@@ -59,7 +59,7 @@ app.post("/send-email", async (req, res) => {
   }
 });
 
-app.post("/send-email", async (req, res) => {
+app.get("/test", async (req, res) => {
   try {
 
     res.status(201).json({
