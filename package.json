@@ -2,7 +2,7 @@
   "name": "as-bday",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
+    "ng": "./node_modules/.bin/ng",
     "start": "cd backend/built && node server.js",
     "build": "ng build",
     "prebuild":"cd backend && npm install",
