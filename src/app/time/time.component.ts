@@ -48,7 +48,6 @@ export class TimeComponent {
   selectTime(time: string) {
     this.selectedTime = time;
     this.customTime = '';
-    console.log(this.selectedTime)
   }
   
 
@@ -85,10 +84,8 @@ export class TimeComponent {
   
   onContainerClick(event: Event): void {
     const target = event.target as HTMLElement;
-    // Check if the clicked element is outside of time-boxes and container
     if (!target.closest('.time-boxes')) {
       this.selectedTime = null;
-      console.log(this.selectedTime)
     }
   }
 }
