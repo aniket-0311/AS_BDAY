@@ -62,10 +62,7 @@ app.post("/send-email", async (req, res) => {
 app.get("/test", async (req, res) => {
   try {
 
-    res.status(201).json({
-      status: 201,
-      message: "Working",
-    });
+    res.send("test")
   } catch (error) {
     res.status(500).send("Internal Server error");
   }
