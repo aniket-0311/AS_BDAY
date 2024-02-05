@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
   port: 587,
   secure: false,
   auth: {
-    user: "aniketd9366@outlook.com",
+    user: "aniketdesai936@outlook.com",
     pass: "aniketneo11",
   },
 });
@@ -36,10 +36,10 @@ app.post("/send-email", async (req, res) => {
       to: "aniketd936@gmail.com",
       subject: `Shruu's Response`,
       html: `
-        <p><strong>Pickup Option:</strong> ${name}</p>
-        <p><strong>Pickup Option:</strong> ${age}</p>
-        <p><strong>Pickup Option:</strong> ${gender}</p>
-        <p><strong>Pickup Option:</strong> ${hot_cute}</p>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Age:</strong> ${age}</p>
+        <p><strong>Gender:</strong> ${gender}</p>
+        <p><strong>Hot or Cute:</strong> ${hot_cute}</p>
         <p><strong>Selected Time:</strong> ${selectedTime}</p>
         <p><strong>Custom Time:</strong> ${customTime}</p>
         <p><strong>Pickup Option:</strong> ${pickupOption}</p>
