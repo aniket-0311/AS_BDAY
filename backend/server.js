@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
   port: 587,
   secure: false,
   auth: {
-    user: "aniketdesai936@outlook.com",
+    user: "aniketdesai1103@outlook.com",
     pass: "aniketneo11",
   },
 });
@@ -32,7 +32,7 @@ app.post("/send-email", async (req, res) => {
     } = req.body;
 
     const mailOptions = {
-      from: "aniketdesai936@outlook.com",
+      from: "aniketdesai1103@outlook.com",
       to: "aniketd936@gmail.com",
       subject: `Shruu's Response`,
       html: `

@@ -1,42 +1,38 @@
-<!-- In your component's HTML file -->
+<div class="container">
+  <h2 *ngIf="!showNewQuestion">WHAT TIME ARE YOU FREE?</h2>
+  <button *ngIf="!showOptions || !showNewQuestion" (click)="toggleOptions()">Tap to see the options</button>
 
-  <div class="container">
-      <h2  *ngIf="!showNewQuestion">WHAT TIME ARE YOU FREE?</h2>
-      <button *ngIf="!showOptions || !showNewQuestion" (click)="toggleOptions()">Tap to see the options</button>
-  
-      <div class="time-boxes" *ngIf="showOptions && !showNewQuestion">
-          <div class="time-box" *ngFor="let time of timeOptions" (click)="selectTime(time)"
-               [class.selected]="selectedTime === time">
-              {{ time }}
-          </div>
-      </div>
-  
-      <div class="custom-time" *ngIf="showOptions && !selectedTime && !showNewQuestion">
-          <label style="background-color: wheat;">Enter Custom Time if no option suitable from above</label>
-          <input type="text" [(ngModel)]="customTime" placeholder="Enter Custom Time">
-      </div>
-  
-      <button *ngIf="showOptions && !showNewQuestion" [disabled]="!isConfirmButtonEnabled()" (click)="confirmSelection()">Done</button>
-  
-      <!-- New question and confirm button -->
-      <div class="new-question" *ngIf="showNewQuestion">
-          <h2 style="font-size: 30px;">Should I pick you up?</h2>
-        
-          <div>
-            <input type="radio" id="yesOption" name="pickupOption" [(ngModel)]="pickupOption" [value]="'Yes'">
-            <label for="yesOption" style="background-color: wheat;">Yes!</label>
-          </div>
-        
-          <div>
-            <input type="radio" id="noOption" name="pickupOption" [(ngModel)]="pickupOption" [value]="'No'">
-            <label for="noOption" style="background-color: wheat;">No, I will come by myself...</label>
-          </div>
-        
-          <!-- Confirm button for the new question -->
-          <button (click)="confirmNewQuestion()">Confirm</button>
-        </div>
-        
+  <div class="time-boxes" *ngIf="showOptions && !showNewQuestion">
+    <div class="time-box" *ngFor="let time of timeOptions" (click)="selectTime(time)" [class.selected]="selectedTime === time">
+      {{ time }}
+    </div>
   </div>
 
-  
-  
+  <div class="custom-time" *ngIf="showOptions && !selectedTime && !showNewQuestion">
+    <label style="background-color: wheat;">Enter Custom Time if no option suitable from above</label>
+    <input type="text" [(ngModel)]="customTime" placeholder="Enter Custom Time">
+  </div>
+
+  <button *ngIf="showOptions && !showNewQuestion" [disabled]="!isConfirmButtonEnabled()" (click)="confirmSelection()">Done</button>
+
+  <!-- New question and confirm button -->
+  <div class="new-question" *ngIf="showNewQuestion">
+    <h2 style="font-size: 30px;">Should I pick you up?</h2>
+
+    <div>
+      <input type="radio" id="yesOption" name="pickupOption" [(ngModel)]="pickupOption" [value]="'Yes'">
+      <label for="yesOption" style="background-color: wheat;">Yes!</label>
+    </div>
+
+    <div>
+      <input type="radio" id="noOption" name="pickupOption" [(ngModel)]="pickupOption" [value]="'No'">
+      <label for="noOption" style="background-color: wheat;">No, I will come by myself...</label>
+    </div>
+
+    <!-- Confirm button for the new question -->
+    <button (click)="confirmNewQuestion()">Confirm</button>
+  </div>
+
+  <!-- Spinner -->
+  <div *ngIf="isSendingEmail" class="loader"></div>
+</div>
