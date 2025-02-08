@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
@@ -15,7 +16,7 @@ const transporter = nodemailer.createTransport({
   secure: false,
   auth: {
     user: "apikey",
-    pass: "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",
+    pass: process.env.SENDGRID_API_KEY,
   },
 });
 
