@@ -10,12 +10,12 @@ app.use(bodyParser.json());
 app.use(cors());
 
 const transporter = nodemailer.createTransport({
-  host: "smtp-mail.outlook.com",
+  host: "smtp.sendgrid.net",
   port: 587,
   secure: false,
   auth: {
-    user: "aniketdesai1103@outlook.com",
-    pass: "aniketneo11",
+    user: "apikey",
+    pass: "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",
   },
 });
 
@@ -32,7 +32,7 @@ app.post("/send-email", async (req, res) => {
     } = req.body;
 
     const mailOptions = {
-      from: "aniketdesai1103@outlook.com",
+      from: "aniketdesai936@gmail.com",
       to: "aniketd936@gmail.com",
       subject: `Shruu's Response`,
       html: `
