@@ -46,7 +46,7 @@ app.post("/send-email", async (req, res) => {
         <p><strong>Pickup Option:</strong> ${pickupOption}</p>
       `,
     };
-
+console.log("start")
     const info = await transporter.sendMail(mailOptions);
 
     res.status(201).json({
