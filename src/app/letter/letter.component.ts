@@ -17,7 +17,7 @@ export class LetterComponent {
 
   ngOnInit() {
     if (this.timeService.selectedTime !== null && this.timeService.selectedTime !== '') {
-      this.time = this.timeService.selectedTime.substring(0, 6);
+      this.time = this.timeService.selectedTime.substring(0, 7);
     }
     
     else if(this.timeService.customTime!= null && this.timeService.customTime != ''){
